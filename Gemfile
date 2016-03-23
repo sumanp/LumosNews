@@ -31,8 +31,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development do
   gem 'capistrano', '~> 3.4'
   gem 'capistrano-rails', '~> 1.1', '>= 1.1.6'
-  gem 'capistrano-rbenv', github: "capistrano/rbenv"
+  gem 'capistrano-passenger'
 end
+
+gem 'capistrano-rbenv', github: "capistrano/rbenv"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
