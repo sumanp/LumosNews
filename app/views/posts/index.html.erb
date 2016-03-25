@@ -14,11 +14,12 @@
   <tbody>
     <% @posts.each do |post| %>
       <tr>
-        <td><%= post.title %></td>
+        <td><%= link_to post.title, post %></td>
         <td><%= post.url %></td>
-        <td><%= link_to 'Show', post %></td>
+        <% if post.user == current_user %>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
