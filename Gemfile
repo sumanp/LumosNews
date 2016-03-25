@@ -12,6 +12,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise', '~> 3.5', '>= 3.5.6'
 gem 'materialize-sass'
+gem 'jquery-turbolinks'
 
 group :development do
   gem 'capistrano', '~> 3.4'

@@ -11,10 +11,6 @@
 </head>
 <body>
 
-  <% flash.each do |name, msg| %>
-    <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
-  <% end %>
-
 <!-- navbar start-->
 <div class="navbar-fixed">
 	<nav role="navigation">
@@ -53,7 +49,12 @@
   <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
 </ul>
 <!-- End Nav -->
+
 <div class="container">
+  <% flash.each do |name, msg| %>
+    <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
+  <% end %>
+
   <%= yield %>
 </div>
 
