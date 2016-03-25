@@ -8,7 +8,50 @@
 </head>
 <body>
 
-<%= yield %>
+  <% flash.each do |name, msg| %>
+    <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
+  <% end %>
+
+<!-- navbar start-->
+<div class="navbar-fixed">
+	<nav class="light-blue lighten-1" role="navigation">
+
+    <div class="nav-wrapper container">
+      <a href="/" class="brand-logo">Instarter</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+
+
+        <% if user_signed_in? %>
+          <li class=""><a href="/">Mind Map</a></li>
+          <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><%= current_user.email %><i class="material-icons right">arrow_drop_down</i></a></li>
+        <% else %>
+          <li><%= link_to "Login", new_user_session_path %></li>
+        <% end %>
+
+
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <% if user_signed_in? %>
+          <li><a href="/">Mind Map</a></li>
+          <li><%= link_to "Edit Profile", edit_user_registration_path %> </li>
+          <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
+        <% else %>
+          <li><%= link_to "Login", new_user_session_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<ul id="dropdown1" class="dropdown-content">
+  <li><%= link_to "Edit Profile", edit_user_registration_path %> </li>
+  <li class="divider"></li>
+  <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
+</ul>
+<!-- End Nav -->
+
+  <%= yield %>
 
 </body>
 </html>
