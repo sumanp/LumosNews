@@ -4,6 +4,9 @@
   <title>Instarter</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -14,7 +17,7 @@
 
 <!-- navbar start-->
 <div class="navbar-fixed">
-	<nav class="light-blue lighten-1" role="navigation">
+	<nav role="navigation">
 
     <div class="nav-wrapper container">
       <a href="/" class="brand-logo">Instarter</a>
@@ -50,8 +53,9 @@
   <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
 </ul>
 <!-- End Nav -->
-
+<div class="container">
   <%= yield %>
+</div>
 
 </body>
 </html>
