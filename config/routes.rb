@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   root 'home#index'
   resources :posts
   resources :keep_posts, only: [:create, :destroy]
+  get 'mind', to: 'keep_posts#index'
+
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

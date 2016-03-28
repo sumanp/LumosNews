@@ -30,7 +30,7 @@
 
 
         <% if user_signed_in? %>
-          <li class=""><a href="/">Mind Palace</a></li>
+          <li class=""><a href="/mind">Mind Palace</a></li>
 
           <li>
             <%= link_to 'New Post', new_post_path, class: "waves-effect waves-light btn grey" %>
@@ -44,7 +44,7 @@
       </ul>
       <ul class="side-nav" id="mobile-demo">
         <% if user_signed_in? %>
-          <li><a href="/">Mind Map</a></li>
+          <li><a href="/mind">Mind Map</a></li>
           <li><%= link_to "Edit Profile", edit_user_registration_path %> </li>
           <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
         <% else %>

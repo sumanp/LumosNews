@@ -1,5 +1,9 @@
 class KeepPostsController < ApplicationController
-  before_action :set_post
+  before_action :set_post, only: [:create, :destroy]
+
+  def index
+    @posts = current_user.keep_posts
+  end
 
   def create
     if Keep.create(kept: @post, user: current_user)

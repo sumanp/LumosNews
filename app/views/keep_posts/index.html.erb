@@ -1,0 +1,29 @@
+
+<br>
+<h5>Posts in mind</h5>
+
+
+<ul class="collection">
+  <% @posts.each do |post| %>
+    <li class="collection-item avatar">
+      <i class="material-icons circle">description</i>
+      <span class="title"><%= link_to post.title, post %> <a href="<%= post.url %>" target="_blank" class= "new-tab"><i class="material-icons tiny">open_in_new</i></a></span>
+      <p><%= post.url %> <br>
+        <small> submitted <%= time_ago_in_words(post.created_at) %> ago </small>
+      </p>
+
+
+      <%- unless current_user.keep_posts.exists?(id: post.id) -%>
+        <%= link_to keep_posts_path(post_id: post), class: "secondary-content tooltipped", method: :post do %>
+          <i class="material-icons " data-position="bottom" data-delay="50" data-tooltip="I am tooltip">bookmark_border</i>
+        <% end %>
+      <%- else -%>
+        <%= link_to keep_post_path(post), class: "secondary-content", method: :delete do %>
+          <i class="material-icons">bookmark</i>
+        <% end %>
+      <%- end -%>
+
+    </li>
+
+    <% end %>
+  </ul>
