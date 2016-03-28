@@ -8,11 +8,11 @@
     <li class="collection-item avatar">
       <i class="material-icons circle">description</i>
       <span class="title"><%= link_to post.title, post %> <a href="<%= post.url %>" target="_blank" class= "new-tab"><i class="material-icons tiny">open_in_new</i></a></span>
-      <p><%= post.url %> <br>
+      <p class= "post-meta"><%= post.url %> <br>
         <small> submitted <%= time_ago_in_words(post.created_at) %> ago </small>
       </p>
 
-
+      <div class="action">
       <%- unless current_user.keep_posts.exists?(id: post.id) -%>
         <%= link_to keep_posts_path(post_id: post), class: "secondary-content", method: :post do %>
           <i class="material-icons">bookmark_border</i>
@@ -22,7 +22,7 @@
           <i class="material-icons">bookmark</i>
         <% end %>
       <%- end -%>
-
+    </div>
     </li>
 
     <% end %>
