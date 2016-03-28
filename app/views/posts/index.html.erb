@@ -11,7 +11,18 @@
       <p><%= post.url %> <br>
         <small> submitted <%= time_ago_in_words(post.created_at) %> ago </small>
       </p>
-      <a href="#!" class="secondary-content"><i class="material-icons">bookmark_border</i></a>
+
+
+      <%- unless current_user.keep_posts.exists?(id: post.id) -%>
+        <%= link_to keep_posts_path(post_id: post), class: "secondary-content", method: :post do %>
+          <i class="material-icons">bookmark_border</i>
+        <% end %>
+      <%- else -%>
+        <%= link_to keep_post_path(post), class: "secondary-content", method: :delete do %>
+          <i class="material-icons">bookmark</i>
+        <% end %>
+      <%- end -%>
+
     </li>
 
     <% end %>

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   root 'home#index'
   resources :posts
+  resources :keep_posts, only: [:create, :destroy]
 
 
   # The priority is based upon order of creation: first created -> highest priority.
