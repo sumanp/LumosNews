@@ -1,29 +1,18 @@
 
-<h4>Listing Posts</h4>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Url</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= link_to post.title, post %></td>
-        <td><%= post.url %></td>
-        <% if post.user == current_user %>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
 <br>
+<h5>Recent Posts</h5>
 
-<%= link_to 'New Post', new_post_path %>
+
+<ul class="collection">
+  <% @posts.each do |post| %>
+    <li class="collection-item avatar">
+      <i class="material-icons circle">description</i>
+      <span class="title"><%= link_to post.title, post %> <a href="<%= post.url %>" target="_blank"><i class="material-icons tiny">open_in_new</i></a></span>
+      <p><%= post.url %> <br>
+        <small> submitted <%= time_ago_in_words(post.created_at) %> ago </small>
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons">bookmark_border</i></a>
+    </li>
+
+    <% end %>
+  </ul>
