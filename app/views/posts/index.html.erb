@@ -7,7 +7,7 @@
   <% @posts.each do |post| %>
     <li class="collection-item avatar">
       <i class="material-icons circle">description</i>
-      <span class="title"><%= link_to post.title, post %> <a href="<%= post.url %>" target="_blank"><i class="material-icons tiny">open_in_new</i></a></span>
+      <span class="title"><%= link_to post.title, post %> <a href="<%= post.url %>" target="_blank" class= "new-tab"><i class="material-icons tiny">open_in_new</i></a></span>
       <p><%= post.url %> <br>
         <small> submitted <%= time_ago_in_words(post.created_at) %> ago </small>
       </p>
