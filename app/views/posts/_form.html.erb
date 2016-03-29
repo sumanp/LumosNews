@@ -1,25 +1,30 @@
-<%= form_for(@post) do |f| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+<div class="row">
+  <%= form_for(@post, :html=> {class: "col s12"}) do |f| %>
+    <% if @post.errors.any? %>
+      <div id="error_explanation">
+        <p><%= pluralize(@post.errors.count, "error") %> please fix the following </p>
 
-      <ul>
-      <% @post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% @post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="row">
+      <div class="input-field col s12">
+        <%= f.label :title %><br>
+        <%= f.text_field :title, placeholder: "Do things that don't scale" %>
+      </div>
+
+    <div class="input-field col s12">
+      <%= f.label :url %><br>
+      <%= f.text_field :url, placeholder: "http://paulgraham.com/ds.html" %>
     </div>
+    <div class="input-field col s12">
+      <%= f.submit class: "btn", value: "Submit Link" %>
+    </div>
+  </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :url %><br>
-    <%= f.text_field :url %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

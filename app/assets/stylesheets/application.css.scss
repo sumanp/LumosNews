@@ -15,17 +15,33 @@
  */
 
  @import "materialize/components/color";
- $primary-color: color("blue", "lighten-2") !default;
 @import "materialize";
 
-.new-tab {
-  color: grey;
+.post-title {
+  color: black;
 }
 
-.post-meta {
+.new-tab {
+  color: #0288d1;
+}
+
+.post-meta{
   color: grey;
+  font-size: 0.9em;
 }
 
 .action {
-  margin-left: 20px;
+  padding-left: 20px;
+}
+
+.post-wrapper {
+  padding-right: 18px;
+}
+
+nav ul li a{
+  color: black;
+}
+
+.link-form {
+  margin: 0px 20px 0px 20px;
 }

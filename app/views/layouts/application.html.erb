@@ -17,25 +17,28 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body>
+<body class="grey lighten-5">
 
 <!-- navbar start-->
 <div class="navbar-fixed">
-	<nav role="navigation">
+	<nav role="navigation" class ="white">
 
     <div class="nav-wrapper container">
-      <a href="/" class="brand-logo">Instarter</a>
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <a href="/" class="brand-logo black-text">Instarter</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse black-text"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
 
 
         <% if user_signed_in? %>
-          <li class=""><a href="/mind">Mind Palace</a></li>
+          <li>
+            <%= link_to 'Home', root_path %>
+          </li>
+          <li><a href="/mind">Mind Palace</a></li>
 
           <li>
-            <%= link_to 'New Post', new_post_path, class: "waves-effect waves-light btn grey" %>
+            <%= link_to 'Submit Link', new_post_path, class: "waves-effect waves-light btn orange lighten-2" %>
 
-          <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons right"><i class="material-icons">more_vert</i></i></a></li>
+          <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons grey-text">account_circle</i></a></li>
         <% else %>
           <li><%= link_to "Login", new_user_session_path %></li>
         <% end %>
@@ -65,12 +68,12 @@
 <div class="container">
   <% if notice %>
         <script type="text/javascript">
-          Materialize.toast('<%= notice %>', 4000)
+          Materialize.toast('<%= notice %>', 1500)
         </script>
       <% end %>
       <% if alert %>
         <script type="text/javascript">
-          Materialize.toast('<%= alert %>', 4000)
+          Materialize.toast('<%= alert %>', 1500)
         </script>
       <% end %>
 
