@@ -15,12 +15,12 @@
 
     </div>
     <%- unless current_user.keep_posts.exists?(id: post.id) -%>
-      <%= link_to keep_posts_path(post_id: post), class: "secondary-content", method: :post do %>
-        <i class="material-icons">bookmark_border</i>
+      <%= link_to keep_posts_path(post_id: post), class: "secondary-content red-text text-lighten-3", method: :post do %>
+        <i class="material-icons waves-effect waves-light">bookmark_border</i>
       <% end %>
     <%- else -%>
-      <%= link_to keep_post_path(post), class: "secondary-content", method: :delete do %>
-        <i class="material-icons">bookmark</i>
+      <%= link_to keep_post_path(post), class: "secondary-content red-text text-lighten-1", method: :delete do %>
+        <i class="material-icons waves-effect waves-light">bookmark</i>
       <% end %>
     <%- end -%>
 
