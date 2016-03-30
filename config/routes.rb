@@ -6,8 +6,16 @@ Rails.application.routes.draw do
   end
 
   root 'home#index'
-  resources :posts
+
+  resources :posts do
+    member do
+      put "upvote" => "posts#upvote"
+      put "flag" => "posts#downvote"
+    end
+  end
+  
   resources :keep_posts, only: [:create, :destroy]
+
   get 'mind', to: 'keep_posts#index'
 
 

@@ -6,8 +6,14 @@
 <ul class="collection">
   <% @posts.each do |post| %>
     <li class="collection-item avatar">
+      <div class="votes">
+        <%= link_to upvote_post_path(post), class: "upvote", method: :put do %>
+          <i class="material-icons blue-text text-lighten-2 ">expand_less</i>
+          <p class="vote-no"><%= post.get_upvotes.size %></p>
+        <% end %>
+      </div>
       <div class="post-wrapper">
-      <i class="material-icons circle">description</i>
+
       <span class="title"><%= link_to post.title, post, class: "post-title" %> <a href="<%= post.url %>" target="_blank" class= "new-tab"><i class="material-icons tiny">open_in_new</i></a></span>
       <p class= "post-meta"><span class="truncate"><%= post.url %></span>
         <small> submitted by <%= post.user.name %>, <%= time_ago_in_words(post.created_at) %> ago. </small>

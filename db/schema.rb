@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160328093842) do
+ActiveRecord::Schema.define(version: 20160330144918) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,11 +30,25 @@ ActiveRecord::Schema.define(version: 20160328093842) do
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.string   "url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.integer  "user_id"
+    t.integer  "cached_votes_total",      default: 0
+    t.integer  "cached_votes_score",      default: 0
+    t.integer  "cached_votes_up",         default: 0
+    t.integer  "cached_votes_down",       default: 0
+    t.integer  "cached_weighted_score",   default: 0
+    t.integer  "cached_weighted_total",   default: 0
+    t.float    "cached_weighted_average", default: 0.0
   end
 
+  add_index "posts", ["cached_votes_down"], name: "index_posts_on_cached_votes_down", using: :btree
+  add_index "posts", ["cached_votes_score"], name: "index_posts_on_cached_votes_score", using: :btree
+  add_index "posts", ["cached_votes_total"], name: "index_posts_on_cached_votes_total", using: :btree
+  add_index "posts", ["cached_votes_up"], name: "index_posts_on_cached_votes_up", using: :btree
+  add_index "posts", ["cached_weighted_average"], name: "index_posts_on_cached_weighted_average", using: :btree
+  add_index "posts", ["cached_weighted_score"], name: "index_posts_on_cached_weighted_score", using: :btree
+  add_index "posts", ["cached_weighted_total"], name: "index_posts_on_cached_weighted_total", using: :btree
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
@@ -55,6 +69,21 @@ ActiveRecord::Schema.define(version: 20160328093842) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "votes", force: :cascade do |t|
+    t.integer  "votable_id"
+    t.string   "votable_type"
+    t.integer  "voter_id"
+    t.string   "voter_type"
+    t.boolean  "vote_flag"
+    t.string   "vote_scope"
+    t.integer  "vote_weight"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
+  add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
   add_foreign_key "keeps", "users"
 end
