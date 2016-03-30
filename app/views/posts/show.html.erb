@@ -8,7 +8,7 @@
       <div class="post-wrapper">
       <i class="material-icons circle">description</i>
       <span class="title"><%= link_to @post.title, @post.url, target: "_blank"%> </span>
-      <p class= "post-meta"><%= @post.url %> <br>
+      <p class= "post-meta"><span class="truncate"><%= @post.url %></span>
         <small> submitted <%= time_ago_in_words(@post.created_at) %> ago </small>
       </p>
 
