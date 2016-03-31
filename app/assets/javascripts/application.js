@@ -24,7 +24,3 @@ $(document).on('page:change', function() {
   $('.tooltipped').tooltip({delay: 50});
   Waves.displayEffect()
 });
-
-$(document).on('page:fetch',   function() { NProgress.start(); });
-$(document).on('page:change',  function() { NProgress.done(); });
-$(document).on('page:restore', function() { NProgress.remove(); });
