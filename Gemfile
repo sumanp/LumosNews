@@ -13,6 +13,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise', '~> 3.5', '>= 3.5.6'
 gem 'materialize-sass'
 gem 'jquery-turbolinks'
+gem 'acts_as_votable', '~> 0.10.0'
+gem 'nprogress-rails'
 
 group :development do
   gem 'capistrano', '~> 3.4'

@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_filter :authenticate_user!, except: [:index, :show]
 
   # GET /posts
@@ -60,6 +60,16 @@ class PostsController < ApplicationController
       format.html { redirect_to posts_url, notice: 'Link deleted' }
       format.json { head :no_content }
     end
+  end
+
+  def upvote
+    @post.upvote_from current_user
+    redirect_to :back
+  end
+
+  def downvote
+    @post.downvote_from current_user
+    redirect_to :back
   end
 
   private

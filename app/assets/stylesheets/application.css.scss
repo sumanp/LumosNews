@@ -49,3 +49,25 @@ nav ul li a{
 .brand-logo {
   margin-top: 5px;
 }
+
+.collection .collection-item.avatar {
+  padding-left: 55px;
+}
+
+.votes {
+  position: absolute;
+    width: 50px;
+    height: 60px;
+    padding-top: 5px;
+    overflow: hidden;
+    left: 15px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+
+p.vote-no {
+  font-size: 0.9em;
+  padding-left: 8px;
+}
