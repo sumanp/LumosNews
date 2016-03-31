@@ -15,6 +15,9 @@
 //= require jquery_ujs
 //= require materialize-sprockets
 //= require_tree .
+//= require nprogress
+//= require nprogress-turbolinks
+//= require nprogress-ajax
 //= require turbolinks
 
 $(document).on('page:change', function() {

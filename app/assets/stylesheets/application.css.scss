@@ -10,12 +10,18 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require nprogress
  *= require_tree .
  *= require_self
  */
 
  @import "materialize/components/color";
 @import "materialize";
+
+#nprogress {
+  position: relative;
+  z-index: 9999999;
+}
 
 .post-title {
   color: black;
