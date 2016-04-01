@@ -1,18 +1,18 @@
 
-<br>
-<h5>Discuss</h5>
+
+<p class="condensed">Discuss</p>
 
 
 <ul class="collection">
     <li class="collection-item avatar">
       <div class="votes">
         <%= link_to upvote_post_path(@post), class: "upvote", method: :put do %>
-          <i class="material-icons blue-text text-lighten-2 ">expand_less</i>
+          <i class="material-icons blue-text text-lighten-2 ">favorite_border</i>
           <p class="vote-no"><%= @post.get_upvotes.size %></p>
         <% end %>
       </div>
       <div class="post-wrapper">
-      
+
       <span class="title"><%= link_to @post.title, @post.url, target: "_blank"%> </span>
       <p class= "post-meta"><span class="truncate"><%= @post.url %></span>
         <small> submitted by <%=@post.user.name %>, <%= time_ago_in_words(@post.created_at) %> ago. </small>
