@@ -14,3 +14,4 @@
 
 config/database.yml
 config/secrets.yml
+config/initializers/mail.rb
