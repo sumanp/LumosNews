@@ -2,7 +2,7 @@ class KeepPostsController < ApplicationController
   before_action :set_post, only: [:create, :destroy]
 
   def index
-    @posts = current_user.keep_posts.paginate(:page => params[:page], per_page: 30)
+    @posts = current_user.keep_posts.paginate(:page => params[:page], per_page: 30).order('created_at DESC')
   end
 
   def create

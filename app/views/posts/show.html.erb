@@ -15,7 +15,7 @@
 
       <span class="title"><%= link_to @post.title, @post.url, target: "_blank"%> </span>
       <p class= "post-meta"><span class="truncate"><%= @post.url %></span>
-        <small> submitted by <%=@post.user.name %>, <%= time_ago_in_words(@post.created_at) %> ago. </small>
+        <small> submitted by <%=@post.user.name %> <%= time_ago_in_words(@post.created_at) %> ago. </small>
       </p>
 
       </div>
