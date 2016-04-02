@@ -8,5 +8,5 @@ class User < ActiveRecord::Base
   has_many :keeps
   has_many :keep_posts, through: :keeps, source: :kept, source_type: 'Post'
 
-  validates :name, presence: true
+
 end
