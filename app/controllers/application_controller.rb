@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
 
 
   protected
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:accept_invitation) << :name
   end
@@ -20,8 +21,6 @@ class ApplicationController < ActionController::Base
     new_user_session_path
   end
 
-  def after_invite_path_for(resource)
-    user_path
-  end
+
 
 end
