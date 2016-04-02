@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users
+  resources :users, only: [:index]
   authenticated :user do
     root 'posts#index', as: :authenticated_root
   end
@@ -13,7 +14,7 @@ Rails.application.routes.draw do
       put "flag" => "posts#downvote"
     end
   end
-  
+
   resources :keep_posts, only: [:create, :destroy]
 
   get 'mind', to: 'keep_posts#index'

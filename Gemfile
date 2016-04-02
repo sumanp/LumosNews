@@ -11,12 +11,14 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise', '~> 3.5', '>= 3.5.6'
+gem 'devise_invitable', '~> 1.5.2'
 gem 'materialize-sass'
 gem 'jquery-turbolinks'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'nprogress-rails'
 gem 'will_paginate-materialize'
 gem 'cancan', '~> 1.6', '>= 1.6.10'
+gem 'simple_form'
 
 group :development do
   gem 'capistrano', '~> 3.4'

@@ -3,6 +3,7 @@ class KeepPostsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
+    
     @posts = current_user.keep_posts.paginate(:page => params[:page], per_page: 30).order('created_at DESC')
   end
 

@@ -1,0 +1,6 @@
+<h5>Send Invitation</h5>
+
+<%= simple_form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => {:method => :post} do |f| %>
+  <%= f.input :email %>
+  <%= f.button :submit, "Create Account", class: "btn" %>
+<% end %>

@@ -1,0 +1,30 @@
+
+<h4> Invite users </h5>
+<%= simple_form_for(User.new, url: user_invitation_path, html: {class: 'form-inline'}) do |f| %>
+  <%= f.input :email, placeholder: 'Email', label: false %>
+  <%= f.button :submit, 'Invite User', class: 'btn' %>
+<% end %>
+
+
+<table style="width:100%">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Posts</th>
+    <th>Status</th>
+  </tr>
+
+  <% @users.each do |user| %>
+<tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.posts.count %></td>
+        <% if user.sign_in_count > 0 %>
+          <td>User Activated</td>
+        <% else %>
+          <td>Pending</td>
+        <% end %>
+</tr>
+  <% end %>
+
+</table>

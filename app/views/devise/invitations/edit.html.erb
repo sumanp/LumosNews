@@ -1,0 +1,16 @@
+<div class="row">
+
+<div class="col s12 m8 offset-m2 l6 offset-l3 card">
+  <br>
+<h5 class= "center-align condensed light">Create an Account</h5>
+
+<%= simple_form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => { :method => :put } do |f| %>
+  <%= f.input :invitation_token, as: :hidden %>
+  <%= f.input :name, placeholder: "Elon Musk" %>
+  <%= f.input :password, placeholder: "Minimum 8 characters" %>
+  <%= f.input :password_confirmation, placeholder: "Minimum 8 characters"  %>
+  <p class="center-align"><%= f.button :submit, "Create Account", class: "btn " %></p>
+<% end %>
+<br>
+</div>
+</div>

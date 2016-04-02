@@ -4,7 +4,7 @@ class Ability
   def initialize(user)
 
     if user.admin?
-
+      can :manage, :all
     else
       can :index, Post do |post|
         post.user == user
@@ -29,6 +29,8 @@ class Ability
       can :index, Keep do |keep|
         keep.user == user
       end
+
+
 
 
       can :create, Post
