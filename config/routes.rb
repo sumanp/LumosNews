@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+
+  devise_for :users, :controllers => { :invitations => 'users/invitations', :confirmations => 'confirmations' }
+
   resources :users, only: [:index]
   authenticated :user do
     root 'posts#index', as: :authenticated_root
