@@ -16,6 +16,8 @@ Rails.application.routes.draw do
       put "downvote" => "posts#downvote"
     end
   end
+  
+  resources :tags, only: [:index, :show]
 
   resources :keep_posts, only: [:create, :destroy]
 

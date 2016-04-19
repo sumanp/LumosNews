@@ -22,6 +22,14 @@
       <%= f.label :url %><br>
       <%= f.text_field :url, placeholder: "http://paulgraham.com/ds.html" %>
     </div>
+
+    <div class="input-field col s12">
+
+    <%= f.label "tags (each seperated by comma)" %><br>
+    <%= f.text_field :tag_list, placeholder: "example: product, ux, marketing"%>
+
+    </div>
+
     <div class="input-field col s12">
       <%= f.submit class: "btn", value: "Submit Link" %>
     </div>

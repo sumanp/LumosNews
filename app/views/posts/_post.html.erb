@@ -1,10 +1,5 @@
-
-
-<p class="condensed">Recent Post</p>
-
-
 <ul class="collection">
-  <% @posts.each do |post| %>
+
     <li class="collection-item avatar">
       <div class="votes">
         <%- unless current_user.voted_up_on?(post) -%>
@@ -40,7 +35,5 @@
 
     </li>
 
-    <% end %>
+    
   </ul>
-
-  <%= will_paginate @posts %>

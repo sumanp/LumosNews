@@ -19,6 +19,7 @@ gem 'nprogress-rails'
 gem 'will_paginate-materialize'
 gem 'cancan', '~> 1.6', '>= 1.6.10'
 gem 'simple_form'
+gem 'acts-as-taggable-on', '~> 3.4'
 
 group :development do
   gem 'capistrano', '~> 3.4'
