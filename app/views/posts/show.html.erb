@@ -6,10 +6,18 @@
 <ul class="collection">
     <li class="collection-item avatar">
       <div class="votes">
+      <%- unless current_user.voted_up_on?(@post) -%>
         <%= link_to upvote_post_path(@post), class: "upvote", method: :put do %>
           <i class="material-icons blue-text text-lighten-2 ">favorite_border</i>
           <p class="vote-no"><%= @post.get_upvotes.size %></p>
         <% end %>
+      <% else %>
+        <%= link_to downvote_post_path(@post), class: "upvote", method: :put do %>
+          <i class="material-icons blue-text text-lighten-2 ">favorite</i>
+          <p class="vote-no"><%= @post.get_upvotes.size %></p>
+        <% end %>
+      <% end %>
+
       </div>
       <div class="post-wrapper">
 

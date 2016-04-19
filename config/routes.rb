@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :posts do
     member do
       put "upvote" => "posts#upvote"
-      put "flag" => "posts#downvote"
+      put "downvote" => "posts#downvote"
     end
   end
 
