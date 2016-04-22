@@ -42,13 +42,13 @@
 
 
   </ul>
+  <div class = "secondary-content">
+    <% if can? :update, @post %>
+    <%= link_to 'Edit', edit_post_path(@post) %>
+    <% end %>
 
-  <% if can? :update, @post %>
-  <%= link_to 'Edit', edit_post_path(@post) %>
-  <% end %>
-
-  <% if can? :destroy, @post %>
-  | <%= link_to 'Delete',  @post,  method: :delete, data: { confirm: 'Are you sure?' } %>
-  <% end %>
-
+    <% if can? :destroy, @post %>
+    | <%= link_to 'Delete',  @post,  method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+  </div>
   <%= render partial: "comments/template", locals: {commentable: @post, new_comment: @comment} %>

@@ -26,6 +26,10 @@ class Ability
         keep.user == user
       end
 
+      can :destroy, Comment do |comment|
+        comment.user == user
+      end
+
       can :index, Keep do |keep|
         keep.user == user
       end
