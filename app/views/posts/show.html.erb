@@ -24,6 +24,7 @@
       <span class="title"><%= link_to @post.title, @post.url, target: "_blank"%> </span>
       <p class= "post-meta"><span class="truncate"><%= @post.url %></span>
         <small> submitted by <%=@post.user.name %> <%= time_ago_in_words(@post.created_at) %> ago. </small>
+        <small>In <%= render @post.tags %></small>
       </p>
 
       </div>
@@ -41,13 +42,13 @@
 
 
   </ul>
-<% if can? :update, @post %>
-<%= link_to 'Edit', edit_post_path(@post) %>
-<% end %>
 
-<% if can? :destroy, @post %>
-| <%= link_to 'Delete',  @post,  method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %>
-|
+  <% if can? :update, @post %>
+  <%= link_to 'Edit', edit_post_path(@post) %>
+  <% end %>
 
-<%= link_to 'Back', posts_path %>
+  <% if can? :destroy, @post %>
+  | <%= link_to 'Delete',  @post,  method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+
+  <%= render partial: "comments/template", locals: {commentable: @post, new_comment: @comment} %>

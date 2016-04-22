@@ -24,4 +24,9 @@ $(document).on('page:change', function() {
   $('.button-collapse').sideNav();
   $('.tooltipped').tooltip({delay: 50});
   Waves.displayEffect()
+
+    $('.comment-reply').click(function(){
+      $(this).closest('.comment').find('.reply-form').toggle()
+      return
+    });
 });

@@ -75,9 +75,38 @@ nav ul li a{
     vertical-align: middle;
 }
 
-
-
 p.vote-no {
   font-size: 0.9em;
   padding-left: 8px;
+}
+
+
+
+.comments-header {
+  border-bottom: 1px dotted gray;
+  margin-bottom: 10px;
+}
+
+.comments-container {
+  p {
+    margin-bottom: 0px;
+  }
+  .comment-nav {
+    margin-left: 5px;
+    margin-bottom: 10px;
+
+    a {
+      font-size: 10px;
+      font-weight: bold;
+      color: #888;
+    }
+  }
+}
+
+.reply-form {
+  display: none;
+}
+
+.comments-show {
+  margin-left: 25px;
 }

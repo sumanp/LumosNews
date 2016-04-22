@@ -20,6 +20,7 @@ gem 'will_paginate-materialize'
 gem 'cancan', '~> 1.6', '>= 1.6.10'
 gem 'simple_form'
 gem 'acts-as-taggable-on', '~> 3.4'
+gem 'acts_as_commentable_with_threading'  
 
 group :development do
   gem 'capistrano', '~> 3.4'

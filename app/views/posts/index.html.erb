@@ -24,7 +24,7 @@
       <span class="title"><%= link_to post.title, post, class: "post-title" %> <a href="<%= post.url %>" target="_blank" class= "new-tab"><i class="material-icons tiny">open_in_new</i></a></span>
       <p class= "post-meta"><span class="truncate"><%= post.url %></span>
         <small> submitted by <%= post.user.name %> <%= time_ago_in_words(post.created_at) %> ago. </small>
-        <small><%= render post.tags %></small>
+        <small>In, <%= render post.tags %></small>
       </p>
 
       </div>
