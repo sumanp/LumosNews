@@ -26,10 +26,13 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
+    @user = User.find_by_email("sumanpuri55@gmail.com")
     @post = current_user.posts.build(post_params)
 
     respond_to do |format|
       if @post.save
+        PostMailer.post_created(@user, @post.user).deliver
+
         format.html { redirect_to @post, notice: 'Link submitted' }
         format.json { render :show, status: :created, location: @post }
       else
