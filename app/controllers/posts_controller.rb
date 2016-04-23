@@ -31,7 +31,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        PostMailer.post_created(@user, @post.user).deliver
+        PostMailer.post_created(@user, @post).deliver
 
         format.html { redirect_to @post, notice: 'Link submitted' }
         format.json { render :show, status: :created, location: @post }
