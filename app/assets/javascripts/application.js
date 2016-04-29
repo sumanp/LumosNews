@@ -23,6 +23,7 @@
 $(document).on('page:change', function() {
   $('.button-collapse').sideNav();
   $('.tooltipped').tooltip({delay: 50});
+  $('.modal-trigger').leanModal();
   Waves.displayEffect()
 
     $('.comment-reply').click(function(){
