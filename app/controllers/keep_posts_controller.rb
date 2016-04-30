@@ -3,7 +3,7 @@ class KeepPostsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    
+
     @posts = current_user.keep_posts.paginate(:page => params[:page], per_page: 30).order('created_at DESC')
   end
 
@@ -11,7 +11,7 @@ class KeepPostsController < ApplicationController
     if Keep.create(kept: @post, user: current_user)
       redirect_to :back, notice: 'Kept in Mind'
     else
-      redirect_to :back, alert: 'Something went wrong...*sad panda*'
+      redirect_to :back, alert: 'Something went wrong...*sad pingu*'
     end
   end
 

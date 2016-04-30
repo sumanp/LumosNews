@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
 
   root 'home#index'
+  get 'home/thankyou'
 
   resources :posts do
     member do
@@ -22,6 +23,9 @@ Rails.application.routes.draw do
   resources :comments
 
   resources :keep_posts, only: [:create, :destroy]
+
+  resources :requests, only: [:create]
+
 
   get 'mind', to: 'keep_posts#index'
 
