@@ -3,9 +3,9 @@ class RequestsController < ApplicationController
   def create
     @request = Request.new(request_params)
     if @request.save
-      redirect_to home_thankyou_path
+      redirect_to home_thankyou_path,:notice => "Thank you!"
     else
-      redirect_to :back, :notice => "Wooah! Please try again "
+      redirect_to root_path, :notice => "Woaah! Please try again"
 
     end
   end
