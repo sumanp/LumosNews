@@ -1,0 +1,39 @@
+<div class="row">
+  <%= form_for(@event, :html=> {class: "col s12"}) do |f| %>
+    <% if @event.errors.any? %>
+      <div id="error_explanation">
+        <p><%= pluralize(@event.errors.count, "error") %> please fix the following </p>
+
+        <ul>
+        <% @event.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="row">
+      <div class="input-field col s12">
+        <%= f.label :title %><br>
+        <%= f.text_field :title, placeholder: "Startup Saturday" %>
+      </div>
+
+    <div class="input-field col s6">
+      <i id="project_start_date" class="material-icons tiny prefix ">date_range</i>
+     <%= f.label :start_date %>
+     <%= f.date_field :start_date, class: "datepicker"%>
+    </div>
+
+    <div class="input-field col s6">
+      <i class="material-icons prefix">date_range</i>
+     <%= f.label :end_date %>
+     <%= f.date_field :end_date, class: "datepicker" %>
+    </div>
+
+
+    <div class="input-field col s12">
+      <%= f.submit class: "btn", value: "Submit Link" %>
+    </div>
+  </div>
+  <% end %>
+</div>

@@ -26,6 +26,8 @@ Rails.application.routes.draw do
 
   resources :requests, only: [:create]
 
+  resources :events
+
 
   get 'mind', to: 'keep_posts#index'
 

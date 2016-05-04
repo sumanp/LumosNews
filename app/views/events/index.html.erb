@@ -1,0 +1,44 @@
+<div class="row">
+  <p class="condensed">UPCOMING EVENTS</p>
+
+  <% @events.each do |event| %>
+    <div class="col s12 m6 l4">
+          <div class="card">
+
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="http://materializecss.com/images/sample-1.jpg">
+              </div>
+
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4"><%= link_to event.title, event, class: "event-title" %><i class="material-icons right">more_vert</i></span>
+                <p><%= event.start_date.strftime("%^a, %e %^b %y") %></p>
+              </div>
+
+              <div class="card-action">
+                <a href="#">Get Tickets</a>
+                <a href="#">Keep in Mind</a>
+              </div>
+
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4"><%= link_to event.title, event, class: "event-title" %><i class="material-icons right">close</i></span>
+                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+              </div>
+
+            </div>
+
+      </div>
+
+
+
+
+
+
+  <% end %>
+
+</div>
+
+
+
+
+
+  <%= will_paginate @posts %>

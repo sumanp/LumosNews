@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160430120641) do
+ActiveRecord::Schema.define(version: 20160503093826) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,17 @@ ActiveRecord::Schema.define(version: 20160430120641) do
 
   add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
+  create_table "events", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
 
   create_table "keeps", force: :cascade do |t|
     t.integer  "user_id"
@@ -141,5 +152,6 @@ ActiveRecord::Schema.define(version: 20160430120641) do
   add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
   add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
+  add_foreign_key "events", "users"
   add_foreign_key "keeps", "users"
 end

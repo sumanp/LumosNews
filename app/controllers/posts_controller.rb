@@ -26,9 +26,8 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @user = User.find_by_email("sumanpuri55@gmail.com")
     @post = current_user.posts.build(post_params)
-
+    @user = User.find_by_email("sumanpuri55@gmail.com")
     respond_to do |format|
       if @post.save
         PostMailer.post_created(@user, @post).deliver
