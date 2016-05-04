@@ -42,6 +42,14 @@ class Ability
         event.user == user
       end
 
+      can :create, Event do |event|
+        event.user == user
+      end
+
+      can :new, Event do |event|
+        event.user == user
+      end
+
 
 
 

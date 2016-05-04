@@ -21,7 +21,7 @@ class EventsController < ApplicationController
   def create
     @event = current_user.events.build(event_params)
     if @event.save
-      redirect_to events_path, notice: 'Event Created'
+      redirect_to new_event_path, notice: 'Event Created'
     else
       redirect_to :back, notice: 'Something went wrong'
     end

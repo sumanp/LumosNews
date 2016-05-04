@@ -1,9 +1,10 @@
+
+<p class="condensed ">Upcoming Events</p>
 <div class="row">
-  <p class="condensed">UPCOMING EVENTS</p>
 
   <% @events.each do |event| %>
     <div class="col s12 m6 l4">
-          <div class="card small">
+          <div class="card">
 
               <div class="card-image waves-effect waves-block waves-light">
                 <img class="activator" src="<%= event.cover_image.url %>">
@@ -11,8 +12,7 @@
 
               <div class="card-content">
                 <span class="card-title activator grey-text text-darken-4"><%= link_to event.title, event.url, target: "_blank" %><i class="material-icons right">more_vert</i></span>
-                <p><%= event.start_date.strftime("%^a, %e %^b %y") %>
-                </p>
+                <p><%= event.start_date.strftime("%^a, %e %^b %y") %></p>
               </div>
 
               <div class="card-action">
@@ -24,28 +24,26 @@
                 <span class="card-title grey-text text-darken-4"><%= link_to event.title, event.url, class: "event-title" %><i class="material-icons right">close</i></span>
                 <p><%= event.description %></p>
               </div>
+            </div>
 
-          <% if can? :destroy, @even %>
-            </div><div class="chip">
-              <%= link_to 'Delete',  event,  method: :delete, data: { confirm: 'Are you sure?' } %>
-            </div>
-            <div class="chip">
-              <%= link_to 'Edit', edit_event_path(event) %>
-            </div>
-          <% end %>
+            <% if can? :destroy, @event %>
+              <div class="chip">
+                <%= link_to 'Delete',  event,  method: :delete, data: { confirm: 'Are you sure?' } %>
+              </div>
+              <div class="chip">
+                <%= link_to 'Edit', edit_event_path(event) %>
+              </div>
+            <% end %>
+
       </div>
-
-
-
-
-
 
   <% end %>
 
 </div>
 
 
-
-
-
-  <%= will_paginate @posts %>
+<% if can? :create, @event %>
+<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+  <a class="btn-floating btn-large waves-effect waves-light blue" href="<%= new_event_path %>"><i class="material-icons">add</i></a>
+</div>
+<% end %>
