@@ -34,6 +34,14 @@ class Ability
         keep.user == user
       end
 
+      can :update, Event do |event|
+        event.user == user
+      end
+
+      can :destroy, Event do |event|
+        event.user == user
+      end
+
 
 
 

@@ -3,29 +3,36 @@
 
   <% @events.each do |event| %>
     <div class="col s12 m6 l4">
-          <div class="card">
+          <div class="card small">
 
               <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="http://materializecss.com/images/sample-1.jpg">
+                <img class="activator" src="<%= event.cover_image.url %>">
               </div>
 
               <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4"><%= link_to event.title, event, class: "event-title" %><i class="material-icons right">more_vert</i></span>
-                <p><%= event.start_date.strftime("%^a, %e %^b %y") %></p>
+                <span class="card-title activator grey-text text-darken-4"><%= link_to event.title, event.url, target: "_blank" %><i class="material-icons right">more_vert</i></span>
+                <p><%= event.start_date.strftime("%^a, %e %^b %y") %>
+                </p>
               </div>
 
               <div class="card-action">
-                <a href="#">Get Tickets</a>
+                <a href="<%= event.url %>" target="_blank">Get Tickets</a>
                 <a href="#">Keep in Mind</a>
               </div>
 
               <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4"><%= link_to event.title, event, class: "event-title" %><i class="material-icons right">close</i></span>
-                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                <span class="card-title grey-text text-darken-4"><%= link_to event.title, event.url, class: "event-title" %><i class="material-icons right">close</i></span>
+                <p><%= event.description %></p>
               </div>
 
+          <% if can? :destroy, @even %>
+            </div><div class="chip">
+              <%= link_to 'Delete',  event,  method: :delete, data: { confirm: 'Are you sure?' } %>
             </div>
-
+            <div class="chip">
+              <%= link_to 'Edit', edit_event_path(event) %>
+            </div>
+          <% end %>
       </div>
 
 
