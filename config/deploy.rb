@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock '3.4.0'
+lock '3.5.0'
 
 set :application, 'instarter'
 set :repo_url, 'git@github.com:sumanp/instarter.git'
