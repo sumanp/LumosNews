@@ -52,7 +52,7 @@ class Ability
 
 
 
-
+      can :read, Event
       can :create, Post
       can :create, Keep
     end
