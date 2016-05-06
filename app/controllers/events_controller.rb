@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: [:index]
 
   def index
     @events = Event.paginate(:page => params[:page], per_page: 20).order('start_date')
