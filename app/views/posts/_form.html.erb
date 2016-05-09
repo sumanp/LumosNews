@@ -23,12 +23,12 @@
       <%= f.text_field :url, placeholder: "http://paulgraham.com/ds.html" %>
     </div>
 
+
     <div class="input-field col s12">
+      <%= f.select :tag_list, options_for_select(["startup","general","product", "code", "growth","visibilty", "saas", "hr", "finance", "productivity", "customer relations"]), {}, {:multiple => true, :class => "chzn-select"} %>
 
-    <%= f.label "tags (each seperated by comma)" %><br>
-    <%= f.text_field :tag_list, placeholder: "example: product, ux, marketing"%>
-
-    </div>
+       <label>Select topics that apply</label>
+     </div>
 
     <div class="input-field col s12">
       <%= f.submit class: "btn", value: "Submit Link" %>

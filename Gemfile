@@ -23,6 +23,7 @@ gem 'acts-as-taggable-on', '~> 3.4'
 gem 'acts_as_commentable_with_threading'
 gem 'carrierwave', '~> 0.10.0'
 
+
 group :development do
   gem 'capistrano', '~> 3.4'
   gem 'capistrano-rails', '~> 1.1', '>= 1.1.6'
