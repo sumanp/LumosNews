@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :keeps
   has_many :keep_posts, through: :keeps, source: :kept, source_type: 'Post'
   has_many :events
+  has_many :keep_events, through: :keeps, source: :kept, source_type: 'Event'
 
 
 end

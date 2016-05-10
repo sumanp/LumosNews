@@ -18,7 +18,15 @@
 
               <div class="card-action">
                 <a href="<%= event.url %>" target="_blank">Get Tickets</a>
-                <a class="right" href="#">Keep in Mind</a>
+                <%- unless current_user.keep_events.exists?(id: event.id) -%>
+                  <%= link_to keep_events_path(event_id: event), class: "secondary-content red-text text-lighten-3 right", method: :post do %>
+                    <i class="material-icons waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Keep">bookmark_border</i>
+                  <% end %>
+                <%- else -%>
+                  <%= link_to keep_event_path(event), class: "secondary-content red-text text-lighten-2 right", method: :delete do %>
+                    <i class="material-icons waves-effect waves-light">bookmark</i>
+                  <% end %>
+                <%- end -%>
               </div>
 
               <div class="card-reveal">

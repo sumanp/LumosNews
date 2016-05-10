@@ -24,6 +24,8 @@ Rails.application.routes.draw do
 
   resources :keep_posts, only: [:create, :destroy]
 
+  resources :keep_events, only: [:create, :destroy]
+
   resources :requests, only: [:create]
 
   resources :events

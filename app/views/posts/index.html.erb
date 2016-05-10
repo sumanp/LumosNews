@@ -33,7 +33,7 @@
           <i class="material-icons waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Keep">bookmark_border</i>
         <% end %>
       <%- else -%>
-        <%= link_to keep_post_path(post), class: "secondary-content red-text text-lighten-1", method: :delete do %>
+        <%= link_to keep_post_path(post), class: "secondary-content red-text text-lighten-2", method: :delete do %>
           <i class="material-icons waves-effect waves-light">bookmark</i>
         <% end %>
       <%- end -%>
@@ -46,7 +46,7 @@
   <%= will_paginate @posts %>
 
   <div class="fixed-action-btn hide-on-med-and-up" style="bottom: 45px; right: 24px;">
-    
+
     <a class="btn-floating btn-large waves-effect waves-light green accent-4" href="<%= new_post_path %>"><i class="material-icons">add</i></a>
 
   </div>
