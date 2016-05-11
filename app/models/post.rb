@@ -6,7 +6,6 @@ class Post < ActiveRecord::Base
 
   belongs_to :user
   validates :title, presence: { message: ": Every story has a title :)" }
-  validates :tags, presence: { message: ": Stories are arranged by tags, select 1 tag minimum :|" }
   validates :url, :format => URI::regexp(%w(http https))
 
 end
