@@ -11,6 +11,8 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @new_comment    = Comment.build_from(@post, current_user.id, "")
+    content = LinkPreview.fetch(@post.url)
+    @embedable = content.as_oembed
   end
 
   # GET /posts/new

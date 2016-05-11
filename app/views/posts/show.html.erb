@@ -19,13 +19,19 @@
       <% end %>
 
       </div>
-      <div class="post-wrapper">
 
-      <span class="title"><%= link_to @post.title, @post.url, target: "_blank"%> </span>
-      <p class= "post-meta"><span class="truncate"><%= @post.url %></span>
-        <small> submitted by <%=@post.user.name %> <%= time_ago_in_words(@post.created_at) %> ago. </small>
-        <small>In <%= render @post.tags %></small>
-      </p>
+      <div class="post-wrapper">
+      
+      <% if @embedable.key?(:html) %>
+      <p class="center-align">  <%= @embedable[:html].html_safe %></p>
+      <% else %>
+        <span class="title"><%= link_to @post.title, @post.url, target: "_blank"%> </span>
+        <p class= "post-meta"><span class="truncate"><%= @post.url %></span>
+          <p class="grey-text text-darken-3"><%= @embedable[:description] %> <%= link_to "read more..", @post.url, target: "_blank" %></p>
+          <small> submitted by <%=@post.user.name %> <%= time_ago_in_words(@post.created_at) %> ago. </small>
+          <small>In <%= render @post.tags %></small>
+        </p>
+      <% end %>
 
       </div>
       <%- unless current_user.keep_posts.exists?(id: @post.id) -%>
