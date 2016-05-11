@@ -21,9 +21,11 @@
       </div>
 
       <div class="post-wrapper">
-      
+
       <% if @embedable.key?(:html) %>
-      <p class="center-align">  <%= @embedable[:html].html_safe %></p>
+      <div class="video-container">
+          <p class="center-align">  <%= @embedable[:html].html_safe %></p>
+    </div>
       <% else %>
         <span class="title"><%= link_to @post.title, @post.url, target: "_blank"%> </span>
         <p class= "post-meta"><span class="truncate"><%= @post.url %></span>
