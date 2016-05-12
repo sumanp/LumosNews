@@ -11,8 +11,7 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @new_comment    = Comment.build_from(@post, current_user.id, "")
-    content = LinkPreview.fetch(@post.url)
-    @embedable = content.as_oembed
+    @embedable = @post.embedable
   end
 
   # GET /posts/new
@@ -29,6 +28,9 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = current_user.posts.build(post_params)
+    url = @post.url
+    content = LinkPreview.fetch(url)
+    @post.embedable = content.as_oembed
     @user = User.find_by_email("sumanpuri55@gmail.com")
     respond_to do |format|
       if @post.save
@@ -47,6 +49,9 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1.json
   def update
     authorize! :update, @post
+    url = @post.url
+    content = LinkPreview.fetch(url)
+    @post.embedable = content.as_oembed
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Link updated' }
