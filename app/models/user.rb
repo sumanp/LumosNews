@@ -9,6 +9,11 @@ class User < ActiveRecord::Base
   has_many :keep_posts, through: :keeps, source: :kept, source_type: 'Post'
   has_many :events
   has_many :keep_events, through: :keeps, source: :kept, source_type: 'Event'
+  has_one :profile, dependent: :destroy
+  accepts_nested_attributes_for :profile
 
+  def to_param
+    "#{id} #{name}".parameterize
+  end
 
 end

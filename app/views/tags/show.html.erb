@@ -1,2 +1,4 @@
 <p class="condensed">Topic: <%= @tag.name.titleize %></p>
-<div><%= render @posts %></div>
+<ul class="collection">
+  <%= render @posts %>
+</ul>

@@ -1,0 +1,33 @@
+<%= form_for resource, url: user_settings_path, html: { multipart: true } do |f| %>
+  <%= f.fields_for :profile do |n| %>
+    <div class="row">
+        <div class="input-field col s6">
+          <i class="material-icons prefix">account_circle</i>
+          <%= n.text_field :name, autofocus: true %>
+          <%= n.label :name %>
+        </div>
+        <div class="input-field col s6">
+          <i class="material-icons prefix">location_on</i>
+          <%= n.text_field :location %>
+          <%= n.label :location %>
+        </div>
+        <div class="input-field col s12">
+          <i class="material-icons prefix">create</i>
+          <%= n.text_area :bio, class: "materialize-textarea" %>
+          <%= n.label :bio %>
+        </div>
+        <div class="input-field col s6">
+          <i class="material-icons prefix">date_range</i>
+          <%= n.date_field :birthday, class: "datepicker" %>
+          <%= n.label :birthday %>
+        </div>
+        <div class="input-field col s6">
+          <i class="material-icons prefix">phone</i>
+          <%= n.text_field :tel %>
+          <%= n.label :tel %>
+        </div>
+    </div>
+
+  <% end %>
+    <%= f.submit "update profile", class: "btn " %>
+<% end %>

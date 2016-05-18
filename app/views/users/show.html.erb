@@ -1,0 +1,29 @@
+<br>
+<div class="row">
+  <div class="col s12 m8 l8 offset-m2 offset-l2">
+    <div class="row valign-wrapper">
+      <div class="col s2">
+        <img src="http://www.suryalabel.co.id/wp-content/uploads/2015/05/icon-person-circle2-320x320.png" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+      </div>
+
+      <div class="col s10">
+        <h4 class="grey-text text-darken-3"><%= @user.name %></h4>
+        <p class="grey-text text-darken-2"><%= @user.profile.bio unless @user.profile.blank? %> </p>
+        <p class="grey-text text-darken-2"><b>80</b> Following  <b>450</b> Followers </p>
+      </div>        <% if @user == current_user %><a href="<%= user_settings_url %>"><i class="material-icons tiny">create</i>edit</a> <% end %>
+
+
+    </div>
+
+    <div class="divider"></div><br />
+
+    <div class="row">
+      <p class="medium ">Recommended by <%= @user.name %></p>
+
+
+
+      <ul class="collection">
+        <%= render @posts %>
+      </ul>
+    </div>
+</div>
