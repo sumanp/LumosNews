@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(profile_attributes: [:id, :name, :birthday, :tel, :location, :bio])
+      params.require(:user).permit(:avatar, :avatar_cache, :remove_avatar, profile_attributes: [:id, :name, :birthday, :tel, :location, :bio])
     end
 
     def authenticate_owner!

@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  mount_uploader :avatar, AvatarUploader
   acts_as_voter
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -15,5 +16,14 @@ class User < ActiveRecord::Base
   def to_param
     "#{id} #{name}".parameterize
   end
+
+  # User Avatar Validation
+  validates_integrity_of  :avatar
+  validates_processing_of :avatar
+
+  private
+    def avatar_size_validation
+      errors[:avatar] << "should be less than 3MB" if avatar.size > 3.megabytes
+    end
 
 end

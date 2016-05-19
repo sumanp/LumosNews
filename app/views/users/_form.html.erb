@@ -1,6 +1,17 @@
 <%= form_for resource, url: user_settings_path, html: { multipart: true } do |f| %>
+<div class="input-field col s12 center-align">
+  <% if current_user.avatar.url.present? %>
+    <img src="<%= @user.avatar.url %>" alt="" class="circle responsive-img" height="90" width="90"><br/>
+    <%= f.label :remove_avatar do %>
+      <%= f.check_box :remove_avatar %>
+    <% end %>
+  <% end %>
+  <%= f.file_field :avatar %>
+  <%= f.hidden_field :avatar_cache %>
+</div>
   <%= f.fields_for :profile do |n| %>
     <div class="row">
+
         <div class="input-field col s6">
           <i class="material-icons prefix">account_circle</i>
           <%= n.text_field :name, autofocus: true %>
@@ -16,6 +27,7 @@
           <%= n.text_area :bio, class: "materialize-textarea" %>
           <%= n.label :bio %>
         </div>
+
         <div class="input-field col s6">
           <i class="material-icons prefix">date_range</i>
           <%= n.date_field :birthday, class: "datepicker" %>
