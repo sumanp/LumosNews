@@ -24,6 +24,7 @@ gem 'acts_as_commentable_with_threading'
 gem 'carrierwave', '~> 0.10.0'
 gem 'link_preview', '~> 0.2.8'
 gem "mini_magick"
+gem "acts_as_follower"
 
 
 group :development do

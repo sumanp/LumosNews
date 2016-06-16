@@ -4,12 +4,13 @@
     <div class="row valign-wrapper">
       <div class="col s2">
         <img src="<%= @user.avatar.url %>" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+        <%= render 'follow_form' if user_signed_in? %>
       </div>
 
       <div class="col s10">
         <h4 class="grey-text text-darken-3"><%= @user.name %></h4>
         <p class="grey-text text-darken-2"><%= @user.profile.bio unless @user.profile.blank? %> </p>
-        <p class="grey-text text-darken-2"><b>80</b> Following  <b>450</b> Followers </p>
+        <p class="grey-text text-darken-2"><%= render 'shared/stats' %> </p>
       </div>        <% if @user == current_user %><a href="<%= user_settings_url %>"><i class="material-icons tiny">create</i>edit</a> <% end %>
 
 

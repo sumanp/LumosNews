@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :authenticate_owner!, only: [:edit, :update]
-  before_filter :set_user, only: [:show, :edit, :update]
+  before_filter :set_user, only: [:show, :edit, :update, :follow, :unfollow]
 
   def index
     authorize! :index, @users
@@ -20,6 +20,22 @@ class UsersController < ApplicationController
       redirect_to user_profile_path(@user)
     else
       render 'edit'
+    end
+  end
+
+  def follow
+    current_user.follow(@user)
+    respond_to do |format|
+      format.html { redirect_to @user }
+      format.js
+    end
+  end
+
+  def unfollow
+    current_user.stop_following(@user)
+    respond_to do |format|
+      format.html { redirect_to @user }
+      format.js
     end
   end
 

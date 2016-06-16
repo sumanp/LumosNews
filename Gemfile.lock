@@ -50,6 +50,7 @@ GEM
       activerecord (>= 4.0)
       activesupport (>= 4.0)
       awesome_nested_set (>= 3.0)
+    acts_as_follower (0.2.1)
     acts_as_votable (0.10.0)
     addressable (2.4.0)
     airbrussh (1.0.1)
@@ -232,6 +233,7 @@ PLATFORMS
 DEPENDENCIES
   acts-as-taggable-on (~> 3.4)
   acts_as_commentable_with_threading
+  acts_as_follower
   acts_as_votable (~> 0.10.0)
   byebug
   cancan (~> 1.6, >= 1.6.10)

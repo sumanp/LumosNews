@@ -13,6 +13,11 @@ class User < ActiveRecord::Base
   has_one :profile, dependent: :destroy
   accepts_nested_attributes_for :profile
 
+  acts_as_followable
+  acts_as_follower
+
+
+
   def to_param
     "#{id} #{name}".parameterize
   end

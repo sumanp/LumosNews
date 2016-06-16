@@ -1,4 +1,15 @@
-<p class="condensed">Topic: <%= @tag.name.titleize %></p>
-<ul class="collection">
-  <%= render @posts %>
-</ul>
+</br>
+<div class="row">
+
+  <span class="condensed">Topic: <%= @tag.name.titleize %></span>
+
+  <span class="right">
+    <%= render 'follow_form' if user_signed_in? %>
+  </span>
+</div>
+
+<div class="row">
+  <ul class="collection">
+    <%= render @posts %>
+  </ul>
+</div>

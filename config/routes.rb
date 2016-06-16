@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
 
-
   devise_for :users, :controllers => { :invitations => 'users/invitations', :confirmations => 'confirmations' }
 
-  resources :users, only: [:index]
+  resources :users do
+    member do
+      get :following, :followers
+      get :follow, :unfollow
+
+    end
+  end
 
 
   authenticated :user do
@@ -20,7 +25,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :tags, only: [:index, :show]
+  resources :tags do
+    member do
+      get :follow, :unfollow
+    end
+  end
 
   resources :comments
 
